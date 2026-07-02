@@ -1,0 +1,12 @@
+target/
+demo_out/
+.testnexus/
+*.class
+*.model
+log.txt
+cut.txt
+bcel_repro*
+.classpath*.xml
+.idea/
+*.iml
+.DS_Store
