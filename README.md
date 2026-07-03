@@ -37,6 +37,15 @@ tar xzf ./actions-runner-linux-x64-2.322.0.tar.gz
 
 4. Keep `./run.sh` running (or install as a service with `sudo ./svc.sh install`)
 
+**Important:** Install the runner in a path **without spaces** (e.g. `~/actions-runner`).  
+If the path contains spaces (like `/media/youssef/New Volume/...`), workflow steps fail with:
+
+```
+/usr/bin/bash: /media/youssef/New: No such file or directory
+```
+
+To fix: stop the runner, remove it from GitHub Settings → Runners, then reinstall under `~/actions-runner`.
+
 **Runner prerequisites:** Python 3.10+, Java, Maven, Docker, and Ollama (`ollama serve`).
 
 Until a runner is online, cancel queued runs from the Actions tab — they will not start on their own.
