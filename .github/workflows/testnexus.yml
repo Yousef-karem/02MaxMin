@@ -17,7 +17,10 @@ on:
 
 jobs:
   testnexus-incremental:
-    runs-on: self-hosted
+    # Requires a registered self-hosted runner (Settings → Actions → Runners).
+    # GitHub-hosted runners cannot reach local Ollama/Docker Maven by default.
+    runs-on: [self-hosted, linux]
+    timeout-minutes: 120
 
     steps:
       - name: Checkout repository
