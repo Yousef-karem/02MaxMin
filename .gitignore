@@ -1,6 +1,7 @@
 target/
 demo_out/
 .testnexus/
+actions-runner/
 *.class
 *.model
 log.txt
