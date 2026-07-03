@@ -46,6 +46,8 @@ jobs:
 
       - name: Install Python dependencies
         run: |
+          python3 -m venv .venv
+          . .venv/bin/activate
           python -m pip install --upgrade pip
           pip install -r testnexus-tool/requirements.txt
 
@@ -62,6 +64,7 @@ jobs:
           GITHUB_BASE_REF: ${{ github.base_ref }}
           GITHUB_EVENT_BEFORE: ${{ github.event.before }}
         run: |
+          . .venv/bin/activate
           python testnexus-tool/scripts/testnexus_ci.py \
             --repo . \
             --tool-script testnexus-tool/llm_coverage_demo.py \

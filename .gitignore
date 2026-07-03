@@ -2,6 +2,7 @@ target/
 demo_out/
 .testnexus/
 actions-runner/
+.venv/
 *.class
 *.model
 log.txt
