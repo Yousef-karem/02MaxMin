@@ -32,6 +32,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: Yousef-karem/Unit-test-demo
+          ref: feature/testnexus-extension
           path: testnexus-tool
 
       - name: Restore demo_out cache
