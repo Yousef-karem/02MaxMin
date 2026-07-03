@@ -23,6 +23,14 @@ jobs:
     timeout-minutes: 120
 
     steps:
+      - name: Fix workspace permissions
+        run: |
+          WS="${{ github.workspace }}"
+          sudo chown -R "$USER:$USER" "$WS" 2>/dev/null || true
+          sudo rm -rf "$WS" 2>/dev/null || true
+          sudo mkdir -p "$WS"
+          sudo chown -R "$USER:$USER" "$WS"
+
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
@@ -80,3 +88,7 @@ jobs:
         with:
           name: testnexus-demo-out
           path: demo_out/**
+
+      - name: Reset workspace ownership
+        if: always()
+        run: sudo chown -R "$USER:$USER" "${{ github.workspace }}" 2>/dev/null || true
