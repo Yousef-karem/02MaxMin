@@ -48,6 +48,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r testnexus-tool/requirements.txt
 
+      - name: Preflight (Docker, Ollama, analyzer JAR)
+        run: |
+          docker info >/dev/null
+          curl -sf http://127.0.0.1:11434/api/tags >/dev/null
+          test -f testnexus-tool/testnexus-analyzer-1.0.0.jar
+
       - name: Run TestNexus incremental pipeline
         env:
           GITHUB_EVENT_NAME: ${{ github.event_name }}
