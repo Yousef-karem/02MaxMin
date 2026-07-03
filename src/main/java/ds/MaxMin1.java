@@ -17,7 +17,8 @@ public class MaxMin1 {
       if (v[i] < min) min = v[i];
     }
     int maxMin[] = new int[2]; 
-    maxMin[0] = max; maxMin[1] = min;
+    maxMin[0] = max;
+    maxMin[1] = min;
     return maxMin;
   }
 }
